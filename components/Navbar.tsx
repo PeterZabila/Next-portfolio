@@ -1,6 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
-import Auth from '@/components/Auth'
+import Auth from '@/components/Auth';
+
+import { FaInstagram } from "react-icons/fa";
+import { FaFacebookF } from "react-icons/fa";
+import { FaPinterest } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
 
 interface Props {
     
@@ -33,7 +38,23 @@ export const Navbar = (props: Props) => {
                         )}
                     </div>
                 </div>
+                <div>
                     
+                </div>
+                <div className='flex flex-row items-center gap-4 mr-[20px]'>
+                    <Link href="https://www.instagram.com/petro_zabila/">
+                        <FaInstagram className='text-xl text-gray-900' />
+                    </Link>
+                    <Link href="https://www.facebook.com/petro.zabila/">
+                        <FaFacebookF className='text-xl text-blue-700' />
+                    </Link>
+                    <Link href="https://www.pinterest.com/petrozabila/">
+                        <FaPinterest className='text-xl text-red-700' />
+                    </Link>
+                    <Link href="https://www.linkedin.com/in/petro-zabila-685052257/">
+                        <FaLinkedin className='text-xl text-violet-700' />
+                    </Link>
+                </div>   
                 <Auth />
                 
             </nav>
