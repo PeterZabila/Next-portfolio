@@ -5,7 +5,7 @@ interface Props {
 
 const page = (props: Props) => {
     return (
-        <section className='flex flex-col gap-5 relative z-0 max-w-[1024px] mx-auto'>
+        <section className='flex flex-col gap-5 relative z-0 max-w-[1024px] mx-auto h-[70vh]'>
             <Image src="/back.jpeg" alt="background-image" className="absolute z-[-1] top-0 right-0" fill={true}/>
             <h1 className='text-[30px] weight-bold'>Про мене</h1>
             <p className="pr-[40%]">

@@ -61,22 +61,22 @@ const Contact = () => {
             <MdOutlineEmail className='contact__option-icon' />
             <h4>Email</h4>
             <h5>petrozabila@gmail.com</h5>
-            <a href="mailto:petrozabila@gmail.com" target="_blank" rel="noreferrer">Send a message via email</a>
+            <a href="mailto:petrozabila@gmail.com" target="_blank" rel="noreferrer" className='cursor-pointer'>Send a message via email</a>
           </article>
           <article className='contact__option'>
             <RiMessengerLine className='contact__option-icon' />
             <h4>Messenger</h4>
-            <a href="https://m.me/petro.zabila" target="_blank" rel="noreferrer">Send a message via messenger</a>
+            <a href="https://m.me/petro.zabila" target="_blank" rel="noreferrer" className='cursor-pointer'>Send a message via messenger</a>
           </article>
           <article className='contact__option'>
             <TbBrandTelegram className='contact__option-icon' />
             <h4>Telegram</h4>
-            <a href="https://petrozabila.t.me" target="_blank" rel="noreferrer">Write me on Telegram</a>
+            <a href="https://petrozabila.t.me" target="_blank" rel="noreferrer" className='cursor-pointer'>Write me on Telegram</a>
           </article>
           <article className='contact__option'>
             <TbPhoneCalling className="contact__option-icon" />
             <h4>Cell</h4>
-            <a href="tel:+380631353552" className='pl-1 color-gray-500'>+38 (063) 135-35-52</a>
+            <a href="tel:+380631353552" className='pl-1 color-gray-500 cursor-pointer'>+38 (063) 135-35-52</a>
           </article>
         </div>
 

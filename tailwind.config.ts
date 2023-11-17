@@ -10,6 +10,8 @@ module.exports = {
     extend: {
       fontFamily: {
         inter: ["Inter", "sans-serif"],
+        cormorant: ["Cormorant"],
+        phylosopher: ["Philosopher"]
       },
       colors: {
         "black-100": "#2B2C35",
@@ -30,5 +32,5 @@ module.exports = {
       }
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/aspect-ratio')],
 };

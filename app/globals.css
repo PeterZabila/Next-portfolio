@@ -1,4 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Agbalumo&family=DM+Sans:opsz,wght@9..40,400;9..40,700&family=Poppins:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Agbalumo&family=Cormorant+Garamond:wght@300;500;700&family=DM+Sans:opsz,wght@9..40,400;9..40,700&family=Poppins:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Agbalumo&family=Cormorant+Garamond:wght@300;500;700&family=DM+Sans:opsz,wght@9..40,400;9..40,700&family=Philosopher:wght@400;700&family=Poppins:wght@400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -57,7 +60,7 @@
 }
 
 .contact__option {
-  background: var(--color-bg-variant);
+  background: var(--color-primary-variant);
   padding: 1.2rem;
   border-radius: 1.2rem;
   text-align: center;
@@ -66,6 +69,11 @@
   opacity: 0.7;
   justify-content: center;
   align-items: center;
+}
+
+.contact__option:hover {
+  background: var(--color-light);
+  transition: var(--transition);
 }
 
 .contact__option-icon {
@@ -87,7 +95,7 @@
 .btn {
   width: max-content;
   display: inline-block;
-  color: var(--color-primary);
+  color: var(--color-primary-variant);
   padding: 0.75rem 1.2rem;
   border-radius: 0.4rem;
   cursor: pointer;
@@ -102,7 +110,7 @@
 }
 
 .btn-primary {
-  background: var(--color-primary);
+  background: var(--color-primary-variant);
   color: var(--color-bg)
 }
 

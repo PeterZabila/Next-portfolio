@@ -1,15 +1,15 @@
-import React from 'react'
+
+import Gallery from './Gallery';
 
 interface Props {
     
 }
 
-const Gallery = (props: Props) => {
+const page = (props: Props) => {
+
     return (
-        <div>
-            <h1>This is gallery page</h1>
-        </div>
+        <Gallery/>
     )
 }
 
-export default Gallery;
+export default page;

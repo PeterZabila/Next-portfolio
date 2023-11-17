@@ -23,7 +23,7 @@ title: "About"},
 export const Navbar = (props: Props) => {
 
     return (
-        <header className="w-full z-10">
+        <header className="w-full z-10 mx-[auto]">
             <nav className="max-w-[1440px] mx-auto flex justify-between items-center sm:px-16 px-6 py-4">
                 <div className="flex flex-row space-between">
                     <Link href="/" className="flex justify-center items-center cursor-pointer mr-4">
@@ -55,7 +55,7 @@ export const Navbar = (props: Props) => {
                         <FaLinkedin className='text-xl text-violet-700' />
                     </Link>
                 </div>   
-                <Auth />
+                {/* <Auth /> */}
                 
             </nav>
         </header>
