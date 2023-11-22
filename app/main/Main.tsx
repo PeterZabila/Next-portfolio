@@ -30,11 +30,13 @@ const cards = [
     }
   ];
 
-
-
 const Main = () => {
-    const localMark = localStorage.getItem("mark");
-    const [mark, setMark] = useState<string>(localMark ? localMark : "");
+  let item;
+  if (typeof window !== 'undefined') {
+    // Perform localStorage action
+     item = localStorage.getItem('key')
+  }
+    const [mark, setMark] = useState<string>(item ? item : "");
 
     const handleOpen = (mark: React.SetStateAction<string>) => {
         setMark(mark)

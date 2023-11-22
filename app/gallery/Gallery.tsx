@@ -1,25 +1,26 @@
 "use client";
 import React, {useRef, useEffect, useState, useMemo} from 'react';
 import Image from 'next/image';
-import { CldImage } from 'next-cloudinary';
+import Experimental from "./Experimental"
+// import Link from 'next/link';
+// import { getCldImageUrl } from 'next-cloudinary';
+// import { Metadata } from 'next';
+// import { v2 as cloudinary } from 'cloudinary';
+// import { CloudinaryResource } from '@/types/cloudinary';
 
 import img from '../../public/images/wedding1/01.jpg'
-
 import img1 from '../../public/images/wedding1/02.jpg'
 import img2 from '../../public/images/wedding1/03.jpg'
 import img3 from '../../public/images/wedding1/04.jpg'
 import img4 from '../../public/images/wedding1/05.jpg'
 import img5 from '../../public/images/wedding1/06.jpg'
-
 import mod1 from '../../public/images/portrait/mod1.jpg';
 import mod2 from '../../public/images/portrait/mod2.jpg';
 import mod3 from '../../public/images/portrait/mod3.jpg';
 import mod4 from '../../public/images/portrait/mod4.jpg';
-
 import fam from '../../public/images/family/zol.jpg';
 import fam1 from '../../public/images/family/bud.jpeg';
 import fam2 from '../../public/images/family/gul.jpeg';
-
 
 const data = [
   {
@@ -59,7 +60,6 @@ const data = [
       tag: 'w6'
     },
 ];
-
 const portraitData = [
   {
     id: 1,
@@ -86,7 +86,6 @@ const portraitData = [
     tag: 'a'
   },
 ]
-
 const familyData = [
   {
     id: 1,
@@ -107,13 +106,21 @@ const familyData = [
     tag: 'gul'
   },
 ]
-
 interface Props {
-   
 }
 
-const Gallery = (props: Props) => {
+// export const metedata: Metadata = {
+//   openGraph: {
+//     images: [
+//       getCldImageUrl({
+//         src: "my-store_t4rgo2"
+//       })
+//     ]
+//   }
+// }
 
+
+const Gallery = (props: Props) => {
   const [tag, setTag] = useState<string | null>("w1");
   const containerRef = useRef<null | HTMLDivElement>(null);
   // const category = localStorage.getItem("category");
@@ -124,38 +131,11 @@ const Gallery = (props: Props) => {
         containerRef.current.scrollIntoView();
       }
   }
-//   const tagy = "zol"
-
-// async function search() {
-//     const results = await fetch(`https://api.cloudinary.com/v1_1/${process.env.NEXT_CLOUDINARY_CLOUD_NAME}/resources/images`).then(r => r.json());
-
-//    console.log(results);
-//   }
-
-
-
-    // useEffect(() => void {
-    //   if (tag: string) {
-    //     if(window && containerRef.current) {
-    //       window.cloudinary.galleryWidget({
-    //         container: containerRef.current,
-    //         cloudName: "dq9kynjaj",
-    //         aspectRatio: '16:9',
-    //         mediaAssets: [{ tag }],
-    //         carouselStyle: 'indicators',
-    //         cariuselLocation: 'bottom'
-    //       })
-    //       .render()
-    //     } else {
-    //       return null
-    //     }
-    //   }   
-    // }, [tag]);
 
 if (category === "Wedding") {
   return (
     <section className='flex flex-col w-[80%] mx-auto mt-[20px]'>
-<CldImage width="600" height="600" src="https://res.cloudinary.com/dq9kynjaj/image/upload/v1690361910/portrait/all/134_cccvxv.jpg" alt="<Alt Text>" />
+      {/* <Experimental/> */}
       <ul className='grid grid-cols-3 gap-2 px-[20px]'>
         {data.map(item => (
           <li key={item.id} className="relative rounded-[5px]" onClick={() => {

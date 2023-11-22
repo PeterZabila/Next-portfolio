@@ -1,4 +1,5 @@
 
+import Experimental from './Experimental';
 import Gallery from './Gallery';
 
 interface Props {
@@ -8,7 +9,11 @@ interface Props {
 const page = (props: Props) => {
 
     return (
+        <>
+        <Experimental/>
         <Gallery/>
+        </>
+        
     )
 }
 

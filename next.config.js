@@ -1,16 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    // images: {
-    //     domains: ["cdn.imagin.studio", "res.cloudinary.com"]
-    // },
     images: {
-        loader: "cloudinary",
-        path: "https://res.cloudinary.com/dq9kynjaj/image",
-        domains: ['pbs.twimg.com']
+        domains: ["cdn.imagin.studio", "res.cloudinary.com"]
     },
-   experimental: {
-    appDir: true
-   },
+    // images: {
+    //     loader: "cloudinary",
+    //     path: "https://res.cloudinary.com/dq9kynjaj/image",
+    //     domains: ['pbs.twimg.com']
+    // },
+
    async headers() {
     return [
         {
