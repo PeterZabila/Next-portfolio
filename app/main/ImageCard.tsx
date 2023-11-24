@@ -35,7 +35,6 @@ const ImageCard = ({ id, name, src, description, handleOpen }: TserviceCard) => 
             <h3 
                 className='text-slate-400 text-[20px] font-bold text-center'
             >
-                
                     {name}
             </h3>
                 <motion.p
@@ -56,7 +55,6 @@ const ImageCard = ({ id, name, src, description, handleOpen }: TserviceCard) => 
                         </button>
                     </Link>
                 </div>
-                
         </div>
         </motion.div>
     )

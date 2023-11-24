@@ -2,6 +2,7 @@
 import React, {useRef, useEffect, useState, useMemo} from 'react';
 import Image from 'next/image';
 import Experimental from "./Experimental"
+import { getCookie, setCookie } from 'typescript-cookie'
 // import Link from 'next/link';
 // import { getCldImageUrl } from 'next-cloudinary';
 // import { Metadata } from 'next';
@@ -118,99 +119,50 @@ interface Props {
 //     ]
 //   }
 // }
-
+type TFunc = () => void
 
 const Gallery = (props: Props) => {
   const [tag, setTag] = useState<string | null>("w1");
   const containerRef = useRef<null | HTMLDivElement>(null);
-  // const category = localStorage.getItem("category");
-  const category = "Wedding"
-    
+  
+  let cat: string | null;
+
+  if (typeof window !== 'undefined') {
+    // Perform localStorage action
+     cat = localStorage.getItem("category");
+  }
+
+  // const [category, setCategory] = useState<string | null>()
+const category = "Wedding"
+const handleSetTag = (tag: string) => {
+    setTag(tag);
+    localStorage.setItem("tag", tag);
+    setCookie('tag', tag);
+}
+
   const executeScroll = () => {
       if (containerRef.current !== null) {
         containerRef.current.scrollIntoView();
       }
   }
 
-if (category === "Wedding") {
-  return (
-    <section className='flex flex-col w-[80%] mx-auto mt-[20px]'>
-      {/* <Experimental/> */}
-      <ul className='grid grid-cols-3 gap-2 px-[20px]'>
-        {data.map(item => (
-          <li key={item.id} className="relative rounded-[5px]" onClick={() => {
-            setTag(item.tag);
-            console.log(tag)
-            }}>
-              <Image
-                  src={item.image}
-                  alt={item.tag}
-                  loading="lazy"
-                  onClick={() => { 
-                    setTag(item.tag);
-                    executeScroll();
-                  }}
-                  style={{borderRadius: 15}}
-              />
-              <p style={{
-                  position: "absolute", 
-                  top: "50%", 
-                  left: "50%", 
-                  transform: "translate(-50%, -50%)",
-                  opacity: "0.3",
-                  fontSize: "50px"
-                  }}>{item.caption}</p>
-          </li>
-        ))}
-      </ul>
-      <div ref={containerRef} className='w-full mt-[20px]'></div>
-    </section>
-  ) }
-if (category === "Portrait") {
+if (category) {
+  if (category === "Wedding") {
     return (
       <section className='flex flex-col w-[80%] mx-auto mt-[20px]'>
-
-      <ul className='grid grid-cols-3 gap-2 px-[20px]'>
-                {portraitData && portraitData.map(item => (
-                    <li key={item.caption} style={{position: "relative", borderRadius: "5px"}} onClick={() => setTag(item.tag)}>
-                        <Image
-                            src={item.image}
-                            alt={item.tag}
-                            loading="lazy"
-                            onClick={() => { 
-                              setTag(item.tag);
-                              executeScroll();
-                            }}
-                            style={{borderRadius: 15}}
-                        />
-                        <p style={{
-                            position: "absolute", 
-                            top: "50%", 
-                            left: "50%", 
-                            transform: "translate(-50%, -50%)",
-                            opacity: "0.3",
-                            fontSize: "50px"
-                            }}>{item.caption}</p>
-                    </li>
-                ))}
-        </ul>
-        <div ref={containerRef} className='w-full mt-[20px]'></div>
-
-      </section>
-    )
-  } 
-if (category === "Family") {
-    return (
-      <section className='flex flex-col w-[80%] mx-auto mt-[20px]'>
+        {/* <Experimental/> */}
         <ul className='grid grid-cols-3 gap-2 px-[20px]'>
-        {familyData && familyData.map(item => (
-            <p key={item.caption} style={{position: "relative"}} onClick={() => setTag(item.tag)}>
+          {data.map(item => (
+            <li key={item.id} className="relative rounded-[5px]" onClick={() => {
+              handleSetTag(item.tag);
+              console.log(tag)
+              }}>
                 <Image
                     src={item.image}
                     alt={item.tag}
                     loading="lazy"
                     onClick={() => { 
-                      setTag(item.tag);
+                      handleSetTag(item.tag);
                       executeScroll();
                     }}
                     style={{borderRadius: 15}}
@@ -223,15 +175,89 @@ if (category === "Family") {
                     opacity: "0.3",
                     fontSize: "50px"
                     }}>{item.caption}</p>
-            </p>
+            </li>
           ))}
         </ul>
         <div ref={containerRef} className='w-full mt-[20px]'></div>
+      </section>
+    ) }
+  if (category === "Portrait") {
+      return (
+        <section className='flex flex-col w-[80%] mx-auto mt-[20px]'>
+  
+        <ul className='grid grid-cols-3 gap-2 px-[20px]'>
+                  {portraitData && portraitData.map(item => (
+                      <li key={item.caption} style={{position: "relative", borderRadius: "5px"}} onClick={() => setTag(item.tag)}>
+                          <Image
+                              src={item.image}
+                              alt={item.tag}
+                              loading="lazy"
+                              onClick={() => { 
+                                handleSetTag(item.tag);
+                                executeScroll();
+                              }}
+                              style={{borderRadius: 15}}
+                          />
+                          <p style={{
+                              position: "absolute", 
+                              top: "50%", 
+                              left: "50%", 
+                              transform: "translate(-50%, -50%)",
+                              opacity: "0.3",
+                              fontSize: "50px"
+                              }}>{item.caption}</p>
+                      </li>
+                  ))}
+          </ul>
+          <div ref={containerRef} className='w-full mt-[20px]'></div>
+  
+        </section>
+      )
+    } 
+  if (category === "Family") {
+      return (
+        <section className='flex flex-col w-[80%] mx-auto mt-[20px]'>
+          <ul className='grid grid-cols-3 gap-2 px-[20px]'>
+          {familyData && familyData.map(item => (
+              <p key={item.caption} style={{position: "relative"}} onClick={() => setTag(item.tag)}>
+                  <Image
+                      src={item.image}
+                      alt={item.tag}
+                      loading="lazy"
+                      onClick={() => { 
+                        handleSetTag(item.tag);
+                        executeScroll();
+                      }}
+                      style={{borderRadius: 15}}
+                  />
+                  <p style={{
+                      position: "absolute", 
+                      top: "50%", 
+                      left: "50%", 
+                      transform: "translate(-50%, -50%)",
+                      opacity: "0.3",
+                      fontSize: "50px"
+                      }}>{item.caption}</p>
+              </p>
+            ))}
+          </ul>
+          <div ref={containerRef} className='w-full mt-[20px]'></div>
+  
+      </section>  
+      )
+    } 
+} else {
+  return (
+    <h1>Loading... Please wait</h1>
+  )
+}
 
-    </section>  
-    )
-  }       
+      
     
 }
 
 export default Gallery;
+function cookies() {
+  throw new Error('Function not implemented.');
+}
+

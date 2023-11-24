@@ -1,6 +1,7 @@
 "use client"
 import React, { useState } from 'react';
 import { motion } from "framer-motion";
+
 import ImageCard from './ImageCard';
 import pic10 from '../../public/images/wedding1/10.jpg'
 import pic11 from '../../public/images/wedding1/13.jpg'
@@ -39,7 +40,7 @@ const Main = () => {
     const [mark, setMark] = useState<string>(item ? item : "");
 
     const handleOpen = (mark: React.SetStateAction<string>) => {
-        setMark(mark)
+        setMark(mark);
     }
 
 

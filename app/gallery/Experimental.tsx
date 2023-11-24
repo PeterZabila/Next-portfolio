@@ -4,7 +4,8 @@ import { CldImage } from 'next-cloudinary';
 import Link from 'next/link';
 // import { v2 as cloudinary } from 'cloudinary';
 // const cloudinary = require('cloudinary').v2;
-import { getAllImages } from '../../utils/cloudinary'
+import { getAllImages } from '../../utils/cloudinary';
+import { getCookie, setCookie } from 'typescript-cookie'
 
 interface CloudinaryResource {
   public_id: string;
@@ -21,7 +22,9 @@ const Experimental = (props: Props) => {
   return (
     // <></>
 
-      <>{sss}</>
+      <>
+      {/* {sss} */}
+      </>
       //  <ul className="grid gap-12 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
       //   {Array.isArray(resources) && resources.map((product: CloudinaryResource) => {
       //     return (
