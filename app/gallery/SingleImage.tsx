@@ -1,26 +1,20 @@
-"use client"
+"use client";
+import React, { useState } from "react";
 import Image from "next/image";
 import { CloudinaryResource } from '../../utils/cloudinary'
 
-interface Props {
-    public_id: string;
-    secure_url: string;
-    custom_id: string;
-    key: string;
-}
-
-const SingleImage = ({product, key}: Props) => {
+const SingleImage = ({ product }: CloudinaryResource) => {
     return (
-            <Image
-            key={key}
+        <Image
             width={300}
             height={300}
 
-            className="rounded-lg"
+            className="rounded-lg cursor-pointer"
             src={product.secure_url}
             alt='gallery image'
             loading="lazy"
-        /> 
+        />
+
     )
 }
 

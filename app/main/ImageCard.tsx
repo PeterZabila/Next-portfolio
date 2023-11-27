@@ -11,11 +11,10 @@ type TserviceCard = {
     handleOpen: (name: string) => void;
 }
 
-const ImageCard = ({ id, name, src, description, handleOpen }: TserviceCard) => {
+const ImageCard = ({ id, name, src, description }: TserviceCard) => {
 
    const handleCategory = (name: string) => {
-        handleOpen(name);
-        localStorage.setItem("mark", name);
+        localStorage.setItem("category", name);
    }
 
     return (

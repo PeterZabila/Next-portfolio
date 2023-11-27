@@ -32,17 +32,6 @@ const cards = [
   ];
 
 const Main = () => {
-  let item;
-  if (typeof window !== 'undefined') {
-    // Perform localStorage action
-     item = localStorage.getItem('key')
-  }
-    const [mark, setMark] = useState<string>(item ? item : "");
-
-    const handleOpen = (mark: React.SetStateAction<string>) => {
-        setMark(mark);
-    }
-
 
 return (
     <section className="flex flex-col w-[80%] mx-auto">
@@ -57,7 +46,7 @@ return (
 
       <div className='grid lg:grid-cols-3 gap-4 mt-20 md:grid-cols-2'>
         {cards.map((card, index) => (
-          <ImageCard key={card.name} {...card} handleOpen={handleOpen} />
+          <ImageCard key={card.name} {...card} />
         ))}
       </div>
     </section>

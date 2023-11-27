@@ -1,19 +1,11 @@
 "use client";
-
-import React, { SyntheticEvent, useState, useRef, FormEvent, ChangeEvent } from 'react';
+import React, { useState, useRef, FormEvent, ChangeEvent } from 'react';
+import emailjs from '@emailjs/browser';
 import { MdOutlineEmail } from "react-icons/md";
 import { RiMessengerLine } from "react-icons/ri";
 import { TbBrandTelegram } from "react-icons/tb";
-import emailjs from 'emailjs-com';
-import Link from 'next/link';
-import c from '@/components/CustomButton';
-
-import { FaInstagram } from "react-icons/fa";
-import { FaFacebookF } from "react-icons/fa";
-import { FaPinterest } from "react-icons/fa";
-import { FaLinkedin } from "react-icons/fa";
 import { TbPhoneCalling } from "react-icons/tb";
-import CustomButton from '@/components/CustomButton';
+
 
 type TForm = {
   name: string;

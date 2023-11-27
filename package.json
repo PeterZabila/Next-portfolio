@@ -20,6 +20,7 @@
     "class-variance-authority": "^0.7.0",
     "cloudinary": "^1.41.0",
     "clsx": "^2.0.0",
+    "cookies-next": "^4.1.0",
     "cors": "^2.8.5",
     "framer-motion": "^10.16.4",
     "lucide-react": "^0.292.0",
